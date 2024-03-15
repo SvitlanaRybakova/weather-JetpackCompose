@@ -1,5 +1,6 @@
 package com.example.weather.screens
 
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -12,6 +13,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -57,7 +60,7 @@ fun MainScreen() {
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .background(color = BlueLight),
+                        .background(color = Color.Transparent),
                     horizontalArrangement = Arrangement.SpaceBetween,
 
                     ) {
@@ -71,6 +74,46 @@ fun MainScreen() {
                         modifier = Modifier.size(35.dp),
                         model = "https://cdn.weatherapi.com/weather/64x64/day/116.png",
                         contentDescription = "icon")
+                }
+
+                Text(
+                    text="Stockholm",
+                    style = TextStyle(fontSize = 24.sp),
+                    color = Color.White
+                    )
+
+                Text(
+                    text="23 C",
+                    style = TextStyle(fontSize = 65.sp),
+                    color = Color.White
+                )
+                Text(
+                    text="Sunny",
+                    style = TextStyle(fontSize = 16.sp),
+                    color = Color.White
+                )
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween){
+                        IconButton(onClick = { /*TODO*/ }) {
+                        Image(
+                            painter = painterResource(id = R.drawable.search),
+                            contentDescription = "search",
+                            modifier = Modifier.size(20.dp))
+                        }
+
+                    Text(
+                        text="23 C/12 C",
+                        style = TextStyle(fontSize = 16.sp),
+                        color = Color.White
+                    )
+
+                    IconButton(onClick = { /*TODO*/ }) {
+                        Image(
+                            painter = painterResource(id = R.drawable.sync),
+                            contentDescription = "refresh",
+                            modifier = Modifier.size(20.dp))
+                    }
                 }
             }
 
