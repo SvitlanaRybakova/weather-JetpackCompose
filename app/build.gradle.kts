@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
@@ -6,6 +8,10 @@ plugins {
 android {
     namespace = "com.example.weather"
     compileSdk = 34
+
+    buildFeatures {
+        buildConfig = true
+    }
 
     defaultConfig {
         applicationId = "com.example.weather"
@@ -18,6 +24,10 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        val properties = Properties()
+        properties.load(project.rootProject.file("local.properties").inputStream())
+        buildConfigField("String", "API_KEY", properties.getProperty("API_KEY"))
     }
 
     buildTypes {
@@ -52,6 +62,7 @@ android {
 dependencies {
 
     implementation(libs.androidx.core.ktx)
+    implementation("com.android.volley:volley:1.2.1")
     implementation("com.google.accompanist:accompanist-pager:0.19.0")
     implementation("com.google.accompanist:accompanist-pager-indicators:0.19.0")
     implementation("io.coil-kt:coil-compose:2.0.0-rc01")

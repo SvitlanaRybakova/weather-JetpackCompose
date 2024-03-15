@@ -167,23 +167,23 @@ fun TabLayout() {
             }
         }
 
-        HorizontalPager(
-            count = tabList.size,
-            state = pagerState,
-            modifier = Modifier.weight(1.0f)
-        ) { index ->
-            LazyColumn(
-                modifier = Modifier.fillMaxSize()
-            ) {
-                itemsIndexed(
-                    listOf(
-                        WeatherModel()
-                    )
-                ) { _, item ->
-                    ListItem(item)
-                }
-            }
-        }
+//        HorizontalPager(
+//            count = tabList.size,
+//            state = pagerState,
+//            modifier = Modifier.weight(1.0f)
+//        ) { index ->
+//            LazyColumn(
+//                modifier = Modifier.fillMaxSize()
+//            ) {
+//                itemsIndexed(
+//                    listOf(
+//                        WeatherModel()
+//                    )
+//                ) { _, item ->
+//                    ListItem(item)
+//                }
+//            }
+//        }
 
 
 
