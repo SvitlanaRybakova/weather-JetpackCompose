@@ -1,6 +1,6 @@
 package com.example.weather.screens
 
-
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.weather.R
+import com.example.weather.data.WeatherModel
 import com.example.weather.ui.theme.BlueLight
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
@@ -84,7 +85,7 @@ fun MainCard() {
                 )
 
                 Text(
-                    text = "23 C",
+                    text = "23 ºC",
                     style = TextStyle(fontSize = 65.sp),
                     color = Color.White
                 )
@@ -165,6 +166,7 @@ fun TabLayout() {
                 )
             }
         }
+
         HorizontalPager(
             count = tabList.size,
             state = pagerState,
@@ -173,11 +175,20 @@ fun TabLayout() {
             LazyColumn(
                 modifier = Modifier.fillMaxSize()
             ) {
-                items(15) {
-                    ListItem()
+                itemsIndexed(
+                    listOf(
+                        WeatherModel()
+                    )
+                ) { _, item ->
+                    ListItem(item)
                 }
             }
         }
+
+
+
+
+
     }
 }
 
