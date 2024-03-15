@@ -3,14 +3,15 @@ package com.example.weather
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.weather.screens.MainScreen
+import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import com.example.weather.screens.MainCard
+import com.example.weather.screens.TabLayout
 import com.example.weather.ui.theme.WeatherTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,7 +19,19 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             WeatherTheme {
-                MainScreen()
+                Image(
+                    painter = painterResource(id = R.drawable.sky),
+                    contentDescription = "sky background",
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .alpha(0.5f),
+                    contentScale = ContentScale.Crop
+                )
+                Column(){
+                    MainCard()
+                    TabLayout()
+                }
+
             }
         }
     }
