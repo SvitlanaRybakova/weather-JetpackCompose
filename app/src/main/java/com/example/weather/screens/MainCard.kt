@@ -42,7 +42,7 @@ import kotlinx.coroutines.launch
 
 @Preview(showBackground = true)
 @Composable
-fun MainCard() {
+fun MainCard(currentDay : WeatherModel) {
 
     Column(
         modifier = Modifier
@@ -67,30 +67,30 @@ fun MainCard() {
                     ) {
                     Text(
                         modifier = Modifier.padding(top = 8.dp, start = 8.dp),
-                        text = "14 March 2024, 15:43",
+                        text = currentDay.time,
                         style = TextStyle(fontSize = 15.sp),
                         color = Color.White
                     )
                     AsyncImage(
                         modifier = Modifier.size(35.dp),
-                        model = "https://cdn.weatherapi.com/weather/64x64/day/116.png",
+                        model = currentDay.icon,
                         contentDescription = "icon"
                     )
                 }
 
                 Text(
-                    text = "Stockholm",
+                    text = currentDay.city,
                     style = TextStyle(fontSize = 24.sp),
                     color = Color.White
                 )
 
                 Text(
-                    text = "23 ºC",
+                    text = "${currentDay.currentTemp} ºC",
                     style = TextStyle(fontSize = 65.sp),
                     color = Color.White
                 )
                 Text(
-                    text = "Sunny",
+                    text = currentDay.condition,
                     style = TextStyle(fontSize = 16.sp),
                     color = Color.White
                 )
