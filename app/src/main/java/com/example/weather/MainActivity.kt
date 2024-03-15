@@ -59,7 +59,7 @@ class MainActivity : ComponentActivity() {
                 )
                 Column(){
                     MainCard(currentDay.value)
-                    TabLayout()
+                    TabLayout(daysList)
                 }
 
             }
